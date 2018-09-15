@@ -3,8 +3,9 @@ package com.dcs;
 import javax.swing.*;
 
 public class DrugPanel extends JPanel {
-    Drug thisDrug;
+    final Drug thisDrug;
     public DrugPanel(Drug selectDrug){
-        thisDrug=selectDrug;
+        thisDrug = selectDrug;//set drug
     }
+
 }

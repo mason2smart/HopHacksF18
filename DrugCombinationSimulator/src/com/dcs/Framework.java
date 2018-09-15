@@ -2,8 +2,10 @@ package com.dcs;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Framework extends JFrame {
+    ArrayList<JPanel> Panels;
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); //for scaling
     final double FrameWidthMulti = screenSize.getWidth() / 1920;//scaling
     final double FrameHeightMulti = screenSize.getHeight() / 1080;//scaling
@@ -11,7 +13,8 @@ public class Framework extends JFrame {
     final int FrameHeight = (int) (800 * FrameHeightMulti);
     Dimension windowSize;
     public Framework(){ //constructor -- initialize initial frame properties
-        super("DCS");
+        super("DCS");//must be first sets title
+        Panels = new ArrayList();
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); //for now
             //ADD CLOSE CONFIRMATION HERE - WINDOW LISTENER
         windowSize = new Dimension(FrameWidth, FrameHeight);
