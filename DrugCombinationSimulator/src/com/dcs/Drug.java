@@ -1,6 +1,6 @@
 package com.dcs;
 
-public abstract class Drug {
+public class Drug {
     public String getName(){
         return name;
     }
