@@ -18,7 +18,20 @@ public class Framework extends JFrame {
         this.setSize(windowSize);
         this.setPreferredSize(windowSize);
         this.setResizable(false);
-        this.setVisible(true); //visibility
+        this.setLookandFeel();
+        this.setVisible(true); //visibility1
+    }
+
+    public void setLookandFeel()
+    {
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            System.out.println("ERR: fail to set look and feel");
+        }
     }
 
 }
