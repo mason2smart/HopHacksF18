@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/DrugCombinationSimulator_jar</output-path>
     <root id="archive" name="DrugCombinationSimulator.jar">
       <element id="module-output" name="DrugCombinationSimulator" />
+      <element id="dir-copy" path="$PROJECT_DIR$/Resources" />
     </root>
   </artifact>
 </component>
