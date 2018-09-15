@@ -7,5 +7,6 @@ public class DCS {
 
     public static void main(String[] args) {
         JFrame selection = new Framework();
+        selection.
     }
 }
