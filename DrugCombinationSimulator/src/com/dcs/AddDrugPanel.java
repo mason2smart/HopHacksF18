@@ -11,9 +11,12 @@ import java.io.IOException;
 import java.nio.Buffer;
 
 public class AddDrugPanel extends JPanel {
-    BufferedImage addIMG;
+    BufferedImage defIMG;
+    BufferedImage scaledDefIMG;
+    BufferedImage activeIMG;
+    BufferedImage scaledActiveIMG;
     JButton addDrug;
-    BufferedImage newIMG;
+
     public AddDrugPanel(double wScale, double hScale)
     {
         this.setLayout(new BorderLayout());
@@ -28,9 +31,12 @@ public class AddDrugPanel extends JPanel {
 
     public void setAddIMG(double wScale, double hScale){
          try {
-        addIMG  = ImageIO.read(getClass().getClassLoader().getResourceAsStream("AddBtn.png"));
-        scaleIMG(wScale,hScale);
-        addDrug = new JButton(new ImageIcon(newIMG));
+        defIMG  = ImageIO.read(getClass().getClassLoader().getResourceAsStream("AddBtnDef.png"));
+             activeIMG  = ImageIO.read(getClass().getClassLoader().getResourceAsStream("AddBtn.png"));
+             scaleIMG(wScale,hScale);
+        addDrug = new JButton(new ImageIcon(scaledDefIMG));
+        addDrug.setRolloverEnabled(true);
+        addDrug.setRolloverIcon(new ImageIcon(scaledActiveIMG));
     } catch (IOException e) {
              System.out.println("Failed to load AddDrugIMG");
              e.printStackTrace();
@@ -42,6 +48,7 @@ public class AddDrugPanel extends JPanel {
             AffineTransform scaler = new AffineTransform();
             scaler.scale(wScale, wScale);
             AffineTransformOp scalerOp = new AffineTransformOp(scaler, AffineTransformOp.TYPE_BILINEAR);
-            newIMG = scalerOp.filter(addIMG, newIMG);
+            scaledDefIMG = scalerOp.filter(defIMG, scaledDefIMG);
+            scaledActiveIMG = scalerOp.filter(activeIMG, scaledActiveIMG);
     }
 }
