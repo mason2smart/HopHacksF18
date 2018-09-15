@@ -10,7 +10,7 @@ public class Framework extends JFrame {
     final double FrameWidthMulti = screenSize.getWidth() / 1920;//scaling
     final double FrameHeightMulti = screenSize.getHeight() / 1080;//scaling
     final int FrameWidth = (int) (1000 * FrameWidthMulti);
-    final int FrameHeight = (int) (800 * FrameHeightMulti);
+    final int FrameHeight = (int) (1000 * FrameHeightMulti);
     Dimension windowSize;
 
     public Framework(){ //constructor -- initialize initial frame properties
@@ -24,9 +24,12 @@ public class Framework extends JFrame {
         this.setResizable(false);
         this.setLookandFeel();
         this.setVisible(true); //visibility
-
-        this.addGenericPanel();
+        this.addGenericPanels();
+        this.setLayout(new GridLayout(2,3));
         this.updateFrame();
+        System.out.println(this.toString());
+        System.out.println(this.Panels.isEmpty());
+        System.out.println(this.Panels.get(0).toString());
     }
 
     public void setLookandFeel()
@@ -40,15 +43,24 @@ public class Framework extends JFrame {
             System.out.println("ERR: fail to set look and feel");
         }
     }
-    public void addGenericPanel(){
-        Panels.add(new AddDrugPanel());
-    }
+    public void addGenericPanels(){
+        int maxDrugs = 6;
+        for(int drugs = 0; drugs<maxDrugs; drugs++)
+        Panels.add(new AddDrugPanel(FrameWidthMulti/3, FrameHeightMulti/2));
+                }
     public void updateFrame(){
-        this.removeAll();
-        for(JPanel i:Panels){
-            this.add(i);
-            this.pack();
+        for(JPanel i:Panels) {
+            System.out.println(Panels.size());
+          //  i.setSize(this.windowSize.width / Panels.size(), this.windowSize.height/Panels.size());
+            i.revalidate();
+            i.repaint();
         }
+        for(JPanel i:Panels){
+            this.remove(i);
+            this.add(i);
+        }
+        this.revalidate();
+        this.repaint();
     }
 
 
