@@ -18,6 +18,7 @@ public class Framework extends JFrame {
         this.setSize(windowSize);
         this.setPreferredSize(windowSize);
         this.setResizable(false);
+        this.setVisible(true); //visibility
     }
 
 }
