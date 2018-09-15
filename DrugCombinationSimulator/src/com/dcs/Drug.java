@@ -10,9 +10,9 @@ public class Drug {
     public float getDosageMed(){
         return dosageMed;
     }
-    protected static float dosage;
-    protected static String name;
-    protected static float dosageMed;
+    protected float dosage;
+    protected String name;
+    protected float dosageMed;
 
 
 
