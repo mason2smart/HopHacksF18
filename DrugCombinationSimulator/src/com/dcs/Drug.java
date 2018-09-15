@@ -1,7 +1,19 @@
 package com.dcs;
 
-public interface Drug {
-    public String getName();
-    public float getDosage();
-    public float getDosageMed();
+public abstract class Drug {
+    public String getName(){
+        return name;
+    }
+    public float getDosage(){
+        return dosage;
+    }
+    public float getDosageMed(){
+        return dosageMed;
+    }
+    protected static float dosage;
+    protected static String name;
+    protected static float dosageMed;
+
+
+
 }
