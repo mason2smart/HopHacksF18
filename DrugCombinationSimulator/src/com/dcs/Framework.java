@@ -1,11 +1,13 @@
 package com.dcs;
 
+import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
 public class Framework extends JFrame {
-    ArrayList<JPanel> Panels;
+    static ArrayList<JPanel> Panels;
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); //for scaling
     final double FrameWidthMulti = screenSize.getWidth() / 1920;//scaling
     final double FrameHeightMulti = screenSize.getHeight() / 1080;//scaling
@@ -45,8 +47,8 @@ public class Framework extends JFrame {
     }
     public void addGenericPanels(){
         int maxDrugs = 6;
-        for(int drugs = 0; drugs<maxDrugs; drugs++)
-        Panels.add(new AddDrugPanel(FrameWidthMulti/3, FrameHeightMulti/2));
+        for(int drug = 0; drug<maxDrugs; drug++)
+        Panels.add(new AddDrugPanel(drug,FrameWidthMulti/3, FrameHeightMulti/2));
                 }
     public void updateFrame(){
         for(JPanel i:Panels) {
@@ -61,6 +63,20 @@ public class Framework extends JFrame {
         }
         this.revalidate();
         this.repaint();
+    }
+    public static void DisableAddBtns(){
+        for (JPanel i:Panels){
+            if (i instanceof  AddDrugPanel){
+                ((AddDrugPanel)i).addDrug.setEnabled(false);
+            }
+        }
+    }
+    public static void EnableAddBtns(){
+        for (JPanel i:Panels){
+            if (i instanceof  AddDrugPanel){
+                ((AddDrugPanel)i).addDrug.setEnabled(true);
+            }
+        }
     }
 
 
