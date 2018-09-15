@@ -6,6 +6,6 @@ import java.awt.*;
 public class DCS {
 
     public static void main(String[] args) {
-        JFrame selection = new Framework();
+        JFrame mainFrame = new Framework();
     }
 }
