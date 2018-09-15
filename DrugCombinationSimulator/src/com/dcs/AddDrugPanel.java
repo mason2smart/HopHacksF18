@@ -13,20 +13,20 @@ public class AddDrugPanel extends JPanel {
     {
        setAddIMG();
        this.add(addDrug);
-
+       this.setVisible(true);
 
     }
 
     public void setAddIMG(){
          try {
-        addIMG  = ImageIO.read(new File("AddBtn.png"));
+        addIMG  = ImageIO.read(getClass().getClassLoader().getResourceAsStream("AddBtn.png"));
         addDrug = new JButton(new ImageIcon(addIMG));
     } catch (IOException e) {
         e.printStackTrace();
         System.out.println("Failed to load AddDrugIMG");
     }
         addDrug.setBorder(BorderFactory.createEmptyBorder());
-        addDrug.setContentAreaFilled(false);
+        //addDrug.setContentAreaFilled(false);
     }
 
 }
