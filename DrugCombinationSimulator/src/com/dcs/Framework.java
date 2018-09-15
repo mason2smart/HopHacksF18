@@ -10,12 +10,14 @@ public class Framework extends JFrame {
     final int FrameWidth = (int) (1000 * FrameWidthMulti);
     final int FrameHeight = (int) (800 * FrameHeightMulti);
     Dimension windowSize;
-    public Framework(){ //constructor
+    public Framework(){ //constructor -- initialize initial frame properties
         super("DCS");
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); //for now
             //ADD CLOSE CONFIRMATION HERE - WINDOW LISTENER
         windowSize = new Dimension(FrameWidth, FrameHeight);
-
+        this.setSize(windowSize);
+        this.setPreferredSize(windowSize);
+        this.setResizable(false);
     }
 
 }
