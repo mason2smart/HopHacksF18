@@ -4,5 +4,7 @@ import javax.swing.*;
 
 public class DrugPanel extends JPanel {
     Drug thisDrug;
-    public DrugPanel
+    public DrugPanel(Drug selectDrug){
+        thisDrug=selectDrug;
+    }
 }
