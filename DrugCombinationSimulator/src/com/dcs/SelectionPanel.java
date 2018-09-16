@@ -75,7 +75,7 @@ public class SelectionPanel extends JFrame {
         selectionBox = new JComboBox<String>();
         titleLabel = new JLabel();
 
-        Font aFont = selectionBox.getFont().deriveFont(0,25);
+        Font aFont = selectionBox.getFont().deriveFont(0,(int)(25*FrameWidthMulti));
         selectionBox.setFont(aFont);
         selectionBox.setPreferredSize(new Dimension(this.getWidth()-5, this.getHeight()/5));
 
@@ -98,7 +98,7 @@ public class SelectionPanel extends JFrame {
                 });
 
         titleLabel.setText("Drug Information");
-        titleLabel.setFont(titleLabel.getFont().deriveFont(1, 22));
+        titleLabel.setFont(titleLabel.getFont().deriveFont(1, (int)(22*FrameWidthMulti)));
         titleLabel.setHorizontalAlignment(2);
     }
 
@@ -117,9 +117,13 @@ public class SelectionPanel extends JFrame {
 
         for (Drug i:Framework.DrugList)
             if (i.getName().equals(selectedItem)){
-                dosageIN.setText(String.valueOf(i.getDosage()));
-                factorAffIn.setText(String.valueOf(i.getFactorAff()));
-                factorUnIn.setText(String.valueOf(i.getFactorUn()));
+                dosageIN.setText("Dosage: "+String.valueOf(i.getDosage()));
+                factorAffIn.setText("Factor Aff: "+String.valueOf(i.getFactorAff()));
+                factorUnIn.setText("Factor Un: "+String.valueOf(i.getFactorUn()));
+                Font aFont = selectionBox.getFont().deriveFont(0,(int)(20*FrameWidthMulti));
+                dosageIN.setFont(aFont);
+                factorUnIn.setFont(aFont);
+                factorAffIn.setFont(aFont);
             }
     }
 
