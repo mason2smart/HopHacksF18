@@ -131,6 +131,15 @@ public class SelectionPanel extends JFrame {
         buttonsPanel.add(cancelButton, BorderLayout.WEST);
         buttonsPanel.add(selectionButton, BorderLayout.EAST);
         this.add(buttonsPanel);
+
+
+        cancelButton.addActionListener(new ActionListener() { //close window if cancel clicked
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Framework.EnableAddBtns();
+                setVisible(false);
+                dispose(); //Destroy the JFrame
+            }});
     }
 
 
