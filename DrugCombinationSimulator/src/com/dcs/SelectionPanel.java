@@ -107,6 +107,8 @@ public class SelectionPanel extends JFrame {
     }
 
     public void showInfo(){
+        selectedItem = (String) selectionBox.getSelectedItem();
+
         for (Drug i:Framework.DrugList)
             if (i.getName().equals(selectedItem)){
                 dosageIN.setText(String.valueOf(i.getDosage()));
