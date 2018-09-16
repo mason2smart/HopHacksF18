@@ -129,7 +129,11 @@ public class SelectionPanel extends JFrame {
 
     public void initButtons(){
         JLabel imgLabel = new JLabel();
-        imgLabel.setIcon( new ImageIcon(getClass().getClassLoader().getResource("gifMed.gif")));
+        ImageIcon gif = new ImageIcon(getClass().getClassLoader().getResource("gifMed.gif"));
+        Image gifImg = gif.getImage();
+        Image newimg = gifImg.getScaledInstance((int)(gif.getIconWidth() *FrameWidthMulti), (int)(gif.getIconHeight()*FrameHeightMulti),  Image.SCALE_DEFAULT); // scale it the smooth way
+
+        imgLabel.setIcon(new ImageIcon(newimg));
         cancelButton = new JButton();
         selectionButton = new JButton();
         cancelButton.setText("Cancel");
