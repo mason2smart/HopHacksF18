@@ -69,11 +69,11 @@ public class DrugPanel extends JPanel {
                 factorUnIn.setFont(aFont);
                 factorAffIn.setFont(aFont);
                 dosageMed.setFont(aFont);
-                drugName.setHorizontalAlignment(2);
-                dosageIN.setHorizontalAlignment(2);
-                factorAffIn.setHorizontalAlignment(2);
-                factorUnIn.setHorizontalAlignment(2);
-                dosageMed.setHorizontalAlignment(2);
+                drugName.setHorizontalAlignment(SwingConstants.CENTER);
+                dosageIN.setHorizontalAlignment(SwingConstants.CENTER);
+                factorAffIn.setHorizontalAlignment(SwingConstants.CENTER);
+                factorUnIn.setHorizontalAlignment(SwingConstants.CENTER);
+                dosageMed.setHorizontalAlignment(SwingConstants.CENTER);
             }
 
            public void initButtons(){
