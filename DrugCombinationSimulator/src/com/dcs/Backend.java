@@ -52,6 +52,6 @@ public class Backend {
                 CI += ((DrugPanel) i).getDrug().getDosage() / ((DrugPanel) i).getDrug().dosageMed();
             }
         }
-        return CI;
+        return CI/dosages.size()*1.2;
     }
 }
