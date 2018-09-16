@@ -19,11 +19,13 @@ public class AddDrugPanel extends JPanel {
     BufferedImage scaledActiveIMG;
     Icon disabledICO;
     JButton addDrug;
-    private static int paneID;
+    public final int paneID;
+    static int count=-1;
     JFrame SelectionPanel;
     public AddDrugPanel(int paneID, double wScale, double hScale)
     {
-        this.paneID = paneID;
+        this.paneID = ++count;
+        System.out.println(count);
         this.setLayout(new BorderLayout());
         this.setVisible(true);
         this.setOpaque(true);
@@ -63,6 +65,7 @@ public class AddDrugPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //addDrug.setText("Select Drug");
+                System.out.println(paneID);
                 SelectionPanel = new SelectionPanel(paneID);
                 DCS.mainFrame.DisableAddBtns();
                 addDrug.setDisabledIcon(new ImageIcon(scaledActiveIMG));

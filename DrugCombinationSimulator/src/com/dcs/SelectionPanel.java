@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class SelectionPanel extends JFrame {
-    private int paneID;
+    private final int paneID;
     Dimension windowSize;
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); //for scaling
     final double FrameWidthMulti = screenSize.getWidth() / 1920;//scaling
@@ -29,6 +29,7 @@ public class SelectionPanel extends JFrame {
  //   private DefaultListModel drugModel;
 
     public SelectionPanel(int paneID){
+        this.paneID=paneID;
        this.setLocation((int)(screenSize.width-1000*FrameWidthMulti), 0);
        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); //for now
        //ADD CLOSE CONFIRMATION HERE - WINDOW LISTENER
@@ -82,10 +83,8 @@ public class SelectionPanel extends JFrame {
         for(Drug i:DCS.mainFrame.DrugList) {
             if (!i.isActive()) {
                 System.out.println(i.getName());
-                selectionBox.addItem(i.getName());
+                this.selectionBox.addItem(i.getName());
             }
-
-            selectionBox.setSelectedIndex(0);
 
         }
             selectionBox.addActionListener(new ActionListener() {
@@ -154,18 +153,11 @@ public class SelectionPanel extends JFrame {
         selectionButton.addActionListener(new ActionListener() { //close window if cancel clicked
             @Override
             public void actionPerformed(ActionEvent e) {
-                DCS.mainFrame.EnableAddBtns();
-                setVisible(false);
-                for(JPanel i:DCS.mainFrame.Panels) {
-                    if (i instanceof AddDrugPanel) {
-                        ((AddDrugPanel) (i)).resetDisabledIcon();
-                    }
-                }
                 for (Drug i:DCS.mainFrame.DrugList)
                     if (i.getName().equals(selectedItem)){
                         DCS.mainFrame.setDrugPanel(paneID, i);
-                        dispose(); //Destroy the JFrame
                         DCS.mainFrame.updateFrame();
+                        dispose(); //Destroy the JFrame
                     }
             }});
     }

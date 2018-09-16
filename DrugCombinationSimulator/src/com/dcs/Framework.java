@@ -50,44 +50,60 @@ public class Framework extends JFrame {
     }
     public void addGenericPanels(){
         int maxDrugs = 6;
-        for(int drug = 0; drug<maxDrugs; drug++)
-        Panels.add(new AddDrugPanel(drug,FrameWidthMulti/3, FrameHeightMulti/2));
+        for(int drug = 0; drug<maxDrugs; drug++) {
+            Panels.add(new AddDrugPanel(drug, FrameWidthMulti / 3, FrameHeightMulti / 2));
+            this.add(Panels.get(drug),drug);
+        }
                 }
     public void updateFrame(){
         for(JPanel i:Panels) {
-            System.out.println(Panels.size());
             //  i.setSize(this.windowSize.width / Panels.size(), this.windowSize.height/Panels.size());
             i.revalidate();
             i.repaint();
         }
-        for(JPanel i:Panels){
-            remove(i);
-            this.add(i);
-        }
-        this.revalidate();
         this.repaint();
+        this.revalidate();
     }
-    public static void DisableAddBtns(){
+    public void DisableAddBtns(){
         for (JPanel i:Panels){
             if (i instanceof  AddDrugPanel){
                 ((AddDrugPanel)i).addDrug.setEnabled(false);
             }
         }
     }
-    public static void EnableAddBtns(){
+    public void EnableAddBtns(){
         for (JPanel i:Panels){
             if (i instanceof  AddDrugPanel){
                 ((AddDrugPanel)i).addDrug.setEnabled(true);
             }
         }
     }
-    public static void setDrugPanel(int paneID, Drug newDrug){
-        newDrug.changeActive();
+    public void setDrugPanel(int paneID, Drug newDrug) {
+        EnableAddBtns();
+        for (JPanel i : Panels) {
+            if (i instanceof AddDrugPanel) {
+                ((AddDrugPanel) (i)).resetDisabledIcon();
+                System.out.println(((AddDrugPanel)(i)).paneID);
+
+            }
+        }
+            newDrug.changeActive();
+        System.out.println(paneID);
+        for (int i=0; i<Panels.size();i++)
+        {
+            if (Panels.get(i) instanceof AddDrugPanel){
+                if (((AddDrugPanel)(Panels.get(i))).paneID==paneID)
+                {
+                    this.remove(Panels.get(i));
+                }
+        }
+        }
         Panels.set(paneID, new DrugPanel(paneID, newDrug));
-        System.out.println( Framework.Panels.get(paneID).toString());
-
-
+        this.add(Panels.get(paneID),paneID);
+            System.out.println(Framework.Panels.get(paneID).toString());
+            for (Drug i:DrugList){
+              System.out.println(i.isActive());
+            }
     }
-
-
 }
+

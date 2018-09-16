@@ -17,7 +17,7 @@ public class Drug {
         return this.isActive;
     }
     public void changeActive(){
-        isActive=!isActive;
+        this.isActive=!this.isActive;
     }
     public String getName(){
         return name;
