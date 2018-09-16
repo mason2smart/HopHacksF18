@@ -34,7 +34,8 @@ public class SelectionPanel extends JFrame {
        selectionPanel = new JPanel();
       // createDrugList();
      //  selectionPanel.add(drugList);
-
+        createSelectionBox();
+        selectionPanel.add(selectionBox);
        this.add(selectionPanel);
        this.pack();
    }
@@ -53,18 +54,22 @@ public class SelectionPanel extends JFrame {
     }
 
     private void createSelectionBox(){
+        selectionBox = new JComboBox<String>();
         for(Drug i:Framework.DrugList) {
             if (!i.isActive()) {
+                System.out.println(i.getName());
                 selectionBox.addItem(i.getName());
             }
+
         }
             selectionBox.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    JComboBox cb = (JComboBox)e.getSource();
-                    String selectedItem = (String)cb.getSelectedItem();
-                }
-            });}
+               @Override
+               public void actionPerformed(ActionEvent e){
+                   JComboBox cb = (JComboBox) e.getSource();
+                     String selectedItem = (String) cb.getSelectedItem();
+                  }
+                });
+            }
 
 
   /*  private void createDrugList()
