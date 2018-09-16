@@ -3,6 +3,7 @@
 ## Drug Combination Simulator (DCS)
 
 DCS is a program written to enhance the computer simulated medical product development pipeline. This pipeline uses chemical dosages and effects from research articles and different databases to calculate multi-compound synergistic, antagonistic, and additive results.
+Written in Java using Swing
 
 ## Authors
 
