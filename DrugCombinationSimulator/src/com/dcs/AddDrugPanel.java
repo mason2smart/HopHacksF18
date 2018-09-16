@@ -64,7 +64,7 @@ public class AddDrugPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 //addDrug.setText("Select Drug");
                 SelectionPanel = new SelectionPanel(paneID);
-                Framework.DisableAddBtns();
+                DCS.mainFrame.DisableAddBtns();
                 addDrug.setDisabledIcon(new ImageIcon(scaledActiveIMG));
             }
             });

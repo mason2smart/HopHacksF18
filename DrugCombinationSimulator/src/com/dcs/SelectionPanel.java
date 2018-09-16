@@ -79,7 +79,7 @@ public class SelectionPanel extends JFrame {
         selectionBox.setFont(aFont);
         selectionBox.setPreferredSize(new Dimension(this.getWidth()-5, this.getHeight()/5));
 
-        for(Drug i:Framework.DrugList) {
+        for(Drug i:DCS.mainFrame.DrugList) {
             if (!i.isActive()) {
                 System.out.println(i.getName());
                 selectionBox.addItem(i.getName());
@@ -115,7 +115,7 @@ public class SelectionPanel extends JFrame {
     public void showInfo(){
         selectedItem = (String) selectionBox.getSelectedItem();
 
-        for (Drug i:Framework.DrugList)
+        for (Drug i:DCS.mainFrame.DrugList)
             if (i.getName().equals(selectedItem)){
                 dosageIN.setText("Dosage: "+String.valueOf(i.getDosage()));
                 factorAffIn.setText("Factor Aff: "+String.valueOf(i.getFactorAff()));
@@ -140,14 +140,33 @@ public class SelectionPanel extends JFrame {
         cancelButton.addActionListener(new ActionListener() { //close window if cancel clicked
             @Override
             public void actionPerformed(ActionEvent e) {
-                Framework.EnableAddBtns();
+                DCS.mainFrame.EnableAddBtns();
                 setVisible(false);
-                for(JPanel i:Framework.Panels) {
+                for(JPanel i:DCS.mainFrame.Panels) {
                     if (i instanceof AddDrugPanel) {
                         ((AddDrugPanel) (i)).resetDisabledIcon();
                     }
                 }
                 dispose(); //Destroy the JFrame
+            }});
+
+
+        selectionButton.addActionListener(new ActionListener() { //close window if cancel clicked
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DCS.mainFrame.EnableAddBtns();
+                setVisible(false);
+                for(JPanel i:DCS.mainFrame.Panels) {
+                    if (i instanceof AddDrugPanel) {
+                        ((AddDrugPanel) (i)).resetDisabledIcon();
+                    }
+                }
+                for (Drug i:DCS.mainFrame.DrugList)
+                    if (i.getName().equals(selectedItem)){
+                        DCS.mainFrame.setDrugPanel(paneID, i);
+                        dispose(); //Destroy the JFrame
+                        DCS.mainFrame.updateFrame();
+                    }
             }});
     }
 

@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class Framework extends JFrame {
     static ArrayList<JPanel> Panels;
     static ArrayList<Drug> DrugList;
-    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); //for scaling
-    final double FrameWidthMulti = screenSize.getWidth() / 1920;//scaling
+    static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); //for scaling
+    static final double FrameWidthMulti = screenSize.getWidth() / 1920;//scaling
     final double FrameHeightMulti = screenSize.getHeight() / 1080;//scaling
     final int FrameWidth = (int) (1000 * FrameWidthMulti);
     final int FrameHeight = (int) (1000 * FrameHeightMulti);
@@ -34,6 +34,7 @@ public class Framework extends JFrame {
         //System.out.println(this.Panels.isEmpty());
         //System.out.println(this.Panels.get(0).toString());
         DrugList = Backend.getDrugs(); //get drugs from file
+
     }
 
     public void setLookandFeel()
@@ -55,12 +56,12 @@ public class Framework extends JFrame {
     public void updateFrame(){
         for(JPanel i:Panels) {
             System.out.println(Panels.size());
-          //  i.setSize(this.windowSize.width / Panels.size(), this.windowSize.height/Panels.size());
+            //  i.setSize(this.windowSize.width / Panels.size(), this.windowSize.height/Panels.size());
             i.revalidate();
             i.repaint();
         }
         for(JPanel i:Panels){
-            this.remove(i);
+            remove(i);
             this.add(i);
         }
         this.revalidate();
@@ -79,6 +80,13 @@ public class Framework extends JFrame {
                 ((AddDrugPanel)i).addDrug.setEnabled(true);
             }
         }
+    }
+    public static void setDrugPanel(int paneID, Drug newDrug){
+        newDrug.changeActive();
+        Panels.set(paneID, new DrugPanel(paneID, newDrug));
+        System.out.println( Framework.Panels.get(paneID).toString());
+
+
     }
 
 

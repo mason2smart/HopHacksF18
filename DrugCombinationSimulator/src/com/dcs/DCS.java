@@ -4,8 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class DCS {
-
+    public static Framework mainFrame;
     public static void main(String[] args) {
-        JFrame mainFrame = new Framework();
+        mainFrame = new Framework();
+    }
+    public JFrame getFrame(){
+        return mainFrame;
     }
 }
