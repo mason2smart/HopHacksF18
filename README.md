@@ -6,9 +6,9 @@ DCS is a program written to enhance the computer simulated medical product devel
 
 ## Authors
 
-* **Mason Cole ** - *Initial work* - [mason2smart](https://github.com/mason2smart)
-* **Kyle Chan ** - *Initial work* - [kylec725](https://github.com/kylec725)
-* **Ben Nkapbela ** - *Initial work* - [benbrunotwo](https://github.com/benbrunotwo)
+* **Mason Cole** - *Initial work* - [mason2smart](https://github.com/mason2smart)
+* **Kyle Chan** - *Initial work* - [kylec725](https://github.com/kylec725)
+* **Ben Nkapbela** - *Initial work* - [benbrunotwo](https://github.com/benbrunotwo)
 
 ## Acknowledgments
 
