@@ -22,6 +22,9 @@ public class SelectionPanel extends JFrame {
     JComboBox<String> selectionBox;
     String selectedItem;
     JLabel titleLabel;
+    JButton selectionButton;
+    JButton cancelButton;
+    JPanel buttonsPanel;
     //JList drugList;
  //   private DefaultListModel drugModel;
 
@@ -40,6 +43,8 @@ public class SelectionPanel extends JFrame {
        selectionPanel = new JPanel();
        infoPanel = new JPanel();
        infoPanel.setLayout(new GridLayout(3,1));
+       buttonsPanel = new JPanel();
+       buttonsPanel.setLayout(new BorderLayout());
       // createDrugList();
      //  selectionPanel.add(drugList);
         initJLabels();
@@ -49,6 +54,7 @@ public class SelectionPanel extends JFrame {
         selectionPanel.setLayout(new FlowLayout());
         this.add(selectionPanel);
         this.add(infoPanel);
+        initButtons();
         showInfo();
     }
 
@@ -115,6 +121,16 @@ public class SelectionPanel extends JFrame {
                 factorAffIn.setText(String.valueOf(i.getFactorAff()));
                 factorUnIn.setText(String.valueOf(i.getFactorUn()));
             }
+    }
+
+    public void initButtons(){
+        cancelButton = new JButton();
+        selectionButton = new JButton();
+        cancelButton.setText("Cancel");
+        selectionButton.setText("Select Drug");
+        buttonsPanel.add(cancelButton, BorderLayout.WEST);
+        buttonsPanel.add(selectionButton, BorderLayout.EAST);
+        this.add(buttonsPanel);
     }
 
 
