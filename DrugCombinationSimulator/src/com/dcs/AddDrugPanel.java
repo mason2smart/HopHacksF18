@@ -17,8 +17,9 @@ public class AddDrugPanel extends JPanel {
     BufferedImage scaledDefIMG;
     BufferedImage activeIMG;
     BufferedImage scaledActiveIMG;
+    Icon disabledICO;
     JButton addDrug;
-    private int paneID;
+    private static int paneID;
     JFrame SelectionPanel;
     public AddDrugPanel(int paneID, double wScale, double hScale)
     {
@@ -31,7 +32,7 @@ public class AddDrugPanel extends JPanel {
         this.addActionListeners();
         this.revalidate();
         this.repaint();
-
+        disabledICO = addDrug.getDisabledIcon();
     }
 
     public void setAddIMG(double wScale, double hScale){
@@ -68,4 +69,8 @@ public class AddDrugPanel extends JPanel {
             }
             });
     }
+    public void resetDisabledIcon(){
+        addDrug.setDisabledIcon(disabledICO);
+    }
+
 }

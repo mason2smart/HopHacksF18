@@ -138,6 +138,11 @@ public class SelectionPanel extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 Framework.EnableAddBtns();
                 setVisible(false);
+                for(JPanel i:Framework.Panels) {
+                    if (i instanceof AddDrugPanel) {
+                        ((AddDrugPanel) (i)).resetDisabledIcon();
+                    }
+                }
                 dispose(); //Destroy the JFrame
             }});
     }
