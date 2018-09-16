@@ -24,7 +24,7 @@ public class AddDrugPanel extends JPanel {
     JFrame SelectionPanel;
     public AddDrugPanel(int paneID, double wScale, double hScale)
     {
-        this.paneID = ++count;
+        this.paneID = paneID;
         System.out.println(count);
         this.setLayout(new BorderLayout());
         this.setVisible(true);

@@ -105,5 +105,32 @@ public class Framework extends JFrame {
               System.out.println(i.isActive());
             }
     }
+    public void removeDrugPanel(int paneID, Drug newDrug) {
+      /*  for (JPanel i : Panels) {
+            if (i instanceof DrugPanel) {
+            System.out.println(((AddDrugPanel)(i)).paneID);
+        }
+    }*/
+        newDrug.changeActive();
+        System.out.println(paneID);
+        for (int i=0; i<Panels.size();i++)
+        {
+            if (Panels.get(i) instanceof DrugPanel){
+                if (((DrugPanel)(Panels.get(i))).paneID==paneID)
+                {
+                    this.remove(Panels.get(i));
+                }
+            }
+        }
+        Panels.set(paneID, new AddDrugPanel(paneID, FrameWidthMulti / 3, FrameHeightMulti / 2));
+        this.add(Panels.get(paneID),paneID);
+        this.validate();
+        this.pack();
+        this.repaint();
+        System.out.println(Framework.Panels.get(paneID).toString());
+        for (Drug i:DrugList){
+            System.out.println(i.isActive());
+        }
+    }
 }
 

@@ -49,7 +49,7 @@ public class Drug {
         factorUn = factorUnIn;
     }
 
-    public double DosageMed() {
+    public double dosageMed() {
         return Math.pow(factorAff, 2)/Math.pow(factorUn, 2) * dosage;
     }
 }

@@ -29,6 +29,7 @@ public class SelectionPanel extends JFrame {
  //   private DefaultListModel drugModel;
 
     public SelectionPanel(int paneID){
+        super("Select Drug");//title
         this.paneID=paneID;
        this.setLocation((int)(screenSize.width-1000*FrameWidthMulti), 0);
        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); //for now
