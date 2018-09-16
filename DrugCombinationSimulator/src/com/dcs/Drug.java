@@ -5,6 +5,7 @@ public class Drug {
     private double dosage;
     private double factorAff;
     private double factorUn;
+    private boolean isActive=false;
 
     public Drug(String nameIn, double dosageIn, double factorAffIn, double factorUnIn) {
         name = nameIn;
@@ -12,7 +13,12 @@ public class Drug {
         factorAff = factorAffIn;
         factorUn = factorUnIn;
     }
-
+    public boolean isActive(){
+        return this.isActive;
+    }
+    public void changeActive(){
+        isActive=!isActive;
+    }
     public String getName(){
         return name;
     }

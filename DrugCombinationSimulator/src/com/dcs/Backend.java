@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class Backend {
 
-    public ArrayList<Drug> getDrugs() {
-        ArrayList<Drug> drugArr = new ArrayList<Drug>();
+    public static ArrayList<Drug> getDrugs() {
+        ArrayList<Drug> drugArr = new ArrayList();
         try {
             BufferedReader input = new BufferedReader( new FileReader("drug_data.txt"));
             String currentDrug;

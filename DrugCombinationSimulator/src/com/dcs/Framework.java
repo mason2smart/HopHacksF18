@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class Framework extends JFrame {
     static ArrayList<JPanel> Panels;
+    static ArrayList<Drug> DrugList;
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); //for scaling
     final double FrameWidthMulti = screenSize.getWidth() / 1920;//scaling
     final double FrameHeightMulti = screenSize.getHeight() / 1080;//scaling
@@ -29,9 +30,10 @@ public class Framework extends JFrame {
         this.addGenericPanels();
         this.setLayout(new GridLayout(2,3));
         this.updateFrame();
-        System.out.println(this.toString());
-        System.out.println(this.Panels.isEmpty());
-        System.out.println(this.Panels.get(0).toString());
+        //System.out.println(this.toString());
+        //System.out.println(this.Panels.isEmpty());
+        //System.out.println(this.Panels.get(0).toString());
+        DrugList = Backend.getDrugs();
     }
 
     public void setLookandFeel()
