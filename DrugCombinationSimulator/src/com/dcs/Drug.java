@@ -2,34 +2,48 @@ package com.dcs;
 
 public class Drug {
     private String name;
-    private float dosage;
-    private float dosageMed;
+    private double dosage;
+    private double factorAff;
+    private double factorUn;
 
-    public Drug(String nameIn, float dosageIn, float dosageMedIn) {
+    public Drug(String nameIn, double dosageIn, double factorAffIn, double factorUnIn) {
         name = nameIn;
         dosage = dosageIn;
-        dosageMed = dosageMedIn;
+        factorAff = factorAffIn;
+        factorUn = factorUnIn;
     }
 
     public String getName(){
         return name;
     }
-    public float getDosage(){
+    public double getDosage(){
         return dosage;
     }
-    public float getDosageMed(){
-        return dosageMed;
+    public double getFactorAff(){
+        return factorAff;
+    }
+
+    public double getFactorUn() {
+        return factorUn;
     }
 
     public void setName(String nameIn) {
         name = nameIn;
     }
 
-    public void setDosage(float dosageIn) {
+    public void setDosage(double dosageIn) {
         dosage = dosageIn;
     }
 
-    public void setDosageMed(float dosageMedIn) {
-        dosageMed = dosageMedIn;
+    public void setfactorAff(double factorAffIn) {
+        factorAff = factorAffIn;
+    }
+
+    public void setFactorUn(double factorUnIn) {
+        factorUn = factorUnIn;
+    }
+
+    public double DosageMed() {
+        return Math.pow(factorAff, 2)/Math.pow(factorUn, 2) * dosage;
     }
 }
