@@ -128,10 +128,13 @@ public class SelectionPanel extends JFrame {
     }
 
     public void initButtons(){
+        JLabel imgLabel = new JLabel();
+        imgLabel.setIcon( new ImageIcon(getClass().getClassLoader().getResource("gifMed.gif")));
         cancelButton = new JButton();
         selectionButton = new JButton();
         cancelButton.setText("Cancel");
         selectionButton.setText("Select Drug");
+        buttonsPanel.add(imgLabel,BorderLayout.CENTER);
         buttonsPanel.add(cancelButton, BorderLayout.WEST);
         buttonsPanel.add(selectionButton, BorderLayout.EAST);
         this.add(buttonsPanel);

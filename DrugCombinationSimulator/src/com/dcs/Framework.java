@@ -1,9 +1,10 @@
 package com.dcs;
 
-import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
-
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.ArrayList;
 
 public class Framework extends JFrame {
@@ -20,7 +21,16 @@ public class Framework extends JFrame {
         super("DCS");//must be first sets title
         Panels = new ArrayList();
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); //for now
-            //ADD CLOSE CONFIRMATION HERE - WINDOW LISTENER
+        WindowListener exitListener = new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                int confirm = 0;
+                    confirm = JOptionPane.showOptionDialog(
+                            null, "Are You Sure You Wish To Quit?",
+                            "Exit Now?", JOptionPane.YES_NO_OPTION,
+                            JOptionPane.QUESTION_MESSAGE, new ImageIcon(getClass().getClassLoader().getResource("gifSmall.gif")), null, null);
+                if (confirm == 0) {
+                    System.exit(0);
+                }}};this.addWindowListener(exitListener);
         windowSize = new Dimension(FrameWidth, FrameHeight);
         this.setSize(windowSize);
         this.setPreferredSize(windowSize);

@@ -1,6 +1,7 @@
 package com.dcs;
 import com.sun.org.apache.bcel.internal.util.ClassPath;
 
+import javax.swing.*;
 import java.io.*;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -39,5 +40,18 @@ public class Backend {
         } else {
             return Double.parseDouble(ratio);
         }
+    }
+
+    double calcCI() {
+        double CI = 0;
+        ArrayList<Double> dosages = new ArrayList<Double>();
+        ArrayList<Double> medDosages = new ArrayList<Double>();
+
+        for (JPanel i : DCS.mainFrame.Panels) {
+            if (i instanceof DrugPanel) {
+                CI += ((DrugPanel) i).getDrug().getDosage() / ((DrugPanel) i).getDrug().dosageMed();
+            }
+        }
+        return CI;
     }
 }
