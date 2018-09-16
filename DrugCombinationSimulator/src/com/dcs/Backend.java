@@ -7,8 +7,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static sun.plugin.javascript.navig.JSType.URL;
-
 public class Backend {
 
     public static ArrayList<Drug> getDrugs() {

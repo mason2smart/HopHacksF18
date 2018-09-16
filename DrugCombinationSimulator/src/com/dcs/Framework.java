@@ -33,7 +33,7 @@ public class Framework extends JFrame {
         //System.out.println(this.toString());
         //System.out.println(this.Panels.isEmpty());
         //System.out.println(this.Panels.get(0).toString());
-        DrugList = Backend.getDrugs();
+        DrugList = Backend.getDrugs(); //get drugs from file
     }
 
     public void setLookandFeel()
